@@ -40,6 +40,7 @@ public class Quiz {
                 }
                 i++;
             }
+            userAnswers = new int [numberOfQuestions];
             namesOfCategories = new String[numberOfCategories];
             while ((line = reader.readLine()) != null) {
                 if(i > 1 && i < (2+numberOfCategories))
