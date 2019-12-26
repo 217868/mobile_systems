@@ -8,6 +8,14 @@ public class Question {
         this.content = content;
         this.answers = answers;
     }
+    public Question(String content)
+    {
+        this.content = content;
+    }
+
+    public void setAnswers(Answers answers) {
+        this.answers = answers;
+    }
 
     public String getContent() {
         return content;
