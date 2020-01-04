@@ -1,0 +1,40 @@
+15
+8
+Architektura BAI?
+Architecture BAI?
+Budownictwo BAI?
+Planowanie przestrzenne BAI?
+Sieci i instalacje w in?ynierii ?rodowiska BAI?
+In?ynieria wzornictwa przemys?owego TMiWT
+W?ókiennictwo i przemys? mody TMiWT
+Wzornictwo TMiWT
+Czy interesuje Ci? studiowanie po angielsku?
+Czy dobrze sobie radzisz z matematyk??
+Czy cenisz sobie zabytki i unikaln?, historyczn? tkank? miasta?
+Czy interesuj? Cie przemys? mody?
+Chcia?by?/Chcia?aby? projektowa? budynki, elewacje I decydowa? o otaczaj?cym Ci? krajobrazie?
+Interesuje Ci? modelowanie komputerowe i nowe technologie?
+Czy interesuje Ci? badanie podstawowych materia?ów budowlanych?
+Czy chcia?by? tworzy? ubrania?
+Czy interesuje Ci? przysz?a praca w biurze projektowym lub jako kierownik budowy?
+Czy interesuj? Ci? innowacje w odzie?y?
+Czy interesuje Ci? proces wznoszenia obiektów budowlanych?
+Czy interesujesz si? ochron? ?rodowiska?
+Czy chcesz umie? bada? i przewidywa? zachowania konsumentów?
+Czy interesujesz si? polityk??
+Chcia?by?/Chcia?aby? projektowa? systemy wodoci?gowe i kanalizacyjne?
+05000000 04000000 22222222 30333333 30333333
+33300200 22200100 11111111 00022022 00033033
+44242000 33131000 11111111 00000111 00000222
+11000444 11000333 11111111 01110000 02220000
+33333000 22222000 11111111 00000222 00000333
+11322141 22222242 11111111 00000000 00000000
+11511300 11411200 11111111 00000011 00000022
+11000355 11000344 11111111 00111000 00222000
+11511010 11411010 11111111 00000101 11000202
+00000555 00000444 11111111 01111000 02222000
+22423000 11312000 11111111 00000111 00000222
+00044030 00033020 11111111 11100101 11100101
+11131422 11131311 11111111 00000000 11101011
+00050000 00040000 11111111 22202222 22202222
+11225000 11114000 11111111 00000111 00000222

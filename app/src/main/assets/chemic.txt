@@ -1,0 +1,11 @@
+10
+9
+inzynieria chemiczna i biochemiczna Wydzial Inzynierii Procesowej i Ochrony Srodowiska
+inzynieria srodowiska Wydzial Inzynierii Procesowej i Ochrony Srodowiska
+chemia w kryminalistyce Wydzial Chemiczny
+nanotechnologia Wydzial Chemiczny
+technologia chemiczna Wydzial Chemiczny
+Advanced Biobased and Bioinspired Materials Wydzial Chemiczny IFE
+analityka chemiczna Wydzial Chemiczny IFE
+chemia Wydzial Chemiczny IFE
+chemia budowlana Wydzial Chemiczny IFE
