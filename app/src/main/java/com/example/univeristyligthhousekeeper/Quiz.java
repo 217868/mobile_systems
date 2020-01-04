@@ -1,11 +1,16 @@
 package com.example.univeristyligthhousekeeper;
 
+import android.content.Context;
+import android.content.res.AssetManager;
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Vector;
 
@@ -17,17 +22,23 @@ public class Quiz {
     private Vector<Question> questions = new Vector<>();
     private int[] userAnswers;
     private String[] namesOfCategories;
+    private AssetManager assetManager;
+
 
     //CONSTURCOTR
-    public Quiz(String file) {
+    public Quiz(String file, AssetManager assetManager) {
         this.filename = file;
+        this.assetManager = assetManager;
         ReadFile();
     }
 
     public void ReadFile() {
         int i = 0;
+        InputStream ims = null;
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(filename));
+            ims = assetManager.open(filename);
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(ims));
             String line;
 
             while ((line = reader.readLine()) != null) {
@@ -55,11 +66,11 @@ public class Quiz {
                 else
                 {
                     int answers [] [] = new int[5][numberOfCategories];
-                    for(int j = 0; j < numberOfCategories; j++)
+                    for(int j = 0; j < 5; j++)
                     {
-                        for(int k = 0; k < 5; k++)
+                        for(int k = 0; k < numberOfCategories; k++)
                         {
-                            answers[j][k] =  Integer.parseInt(String.valueOf(line.charAt(j*6 + k)));
+                            answers[j][k] =  Integer.parseInt(String.valueOf(line.charAt(j*(numberOfCategories+1) + k)));
                         }
                     }
                     Answers answers1 = new Answers(answers);
@@ -68,8 +79,7 @@ public class Quiz {
                 i++;
             }
             reader.close();
-        } catch (Exception e) {
-            System.err.format("Exception occurred trying to read '%s'.", filename);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -93,7 +103,7 @@ public class Quiz {
         for(int i = 0; i < numberOfCategories; i++) {
             int sum = 0;
             for (int j = 0; j < numberOfQuestions; j++) {
-                sum = sum + questions.get(j).getAnswers().getAnswer(userAnswers[j], i);
+                sum = sum + questions.get(j).getAnswers().getAnswer(userAnswers[j], i)*2;
             }
             results[i] = sum;
         }
