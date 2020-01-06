@@ -1,11 +1,31 @@
 10
-9
-inzynieria chemiczna i biochemiczna Wydzial Inzynierii Procesowej i Ochrony Srodowiska
-inzynieria srodowiska Wydzial Inzynierii Procesowej i Ochrony Srodowiska
-chemia w kryminalistyce Wydzial Chemiczny
-nanotechnologia Wydzial Chemiczny
-technologia chemiczna Wydzial Chemiczny
-Advanced Biobased and Bioinspired Materials Wydzial Chemiczny IFE
-analityka chemiczna Wydzial Chemiczny IFE
-chemia Wydzial Chemiczny IFE
-chemia budowlana Wydzial Chemiczny IFE
+8
+Inżynieria chemiczna i biochemiczna IPiOŚ
+Inzynieria środowiska IPiOŚ
+Nanotechnologia Wydział Chemiczny
+Technologia chemiczna Wydział Chemiczny
+Advanced Biobased and Bioinspired Materials Wydział Chemiczny IFE
+Analityka chemiczna Wydział Chemiczny IFE
+Chemia Wydzial Chemiczny
+Chemia budowlana Wydział Chemiczny
+Czy interesuje Cię studiowanie po angielsku?
+Czy przeszkadza Ci nauka specjalistycznego oprogramowania?
+Czy interesujesz się ochroną środowiska?
+Czy chciałbyś uzyskać uprawnienia budowlane?
+Czy chciałbyś wyjechać na erasmusa?
+Czy interesuje Cie przygotowanie się do rozwiązywania problemów produkcyjnych i badawczych w sposób innowacyjny i prorynkowy?
+Czy interesują Cie biomateriały?
+Czy wolałbyś pracować bardziej teoretycznie niż praktycznie?
+Czy chciałbyś zdobyć jak najbardziej wszechstronną wiedzę?
+Czy inetersuje Cie zastosowanie chemii w budownictwie?
+00005500 00004400 11111111 22220022 33330033
+00521212 00512211 11111111 12121212 12121212
+35005002 24004001 11111111 00110110 00220220
+05000002 04000001 11111111 20222220 03000003
+00005500 00004400 11111111 22220022 33330033
+51212121 41111111 11111111 12121212 35212122
+23543214 21321523 11111111 22222212 12525233
+00130550 00120440 11111111 22002002 44004004
+00000050 00000040 11111111 12123121 12312312
+22000005 22000004 11111111 00222220 00222220
+

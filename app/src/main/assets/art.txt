@@ -1,28 +1,28 @@
 15
 8
-Architektura BAI?
-Architecture BAI?
-Budownictwo BAI?
-Planowanie przestrzenne BAI?
-Sieci i instalacje w in?ynierii ?rodowiska BAI?
-In?ynieria wzornictwa przemys?owego TMiWT
-W?�kiennictwo i przemys? mody TMiWT
+Architektura BAIŚ
+Architecture BAIŚ
+Budownictwo BAIŚ
+Planowanie przestrzenne BAIŚ
+Sieci i instalacje w inżynierii środowiska BAIŚ
+Inżynieria wzornictwa przemysłowego TMiWT
+Włókiennictwo i przemysł mody TMiWT
 Wzornictwo TMiWT
-Czy interesuje Ci? studiowanie po angielsku?
-Czy dobrze sobie radzisz z matematyk??
-Czy cenisz sobie zabytki i unikaln?, historyczn? tkank? miasta?
-Czy interesuj? Cie przemys? mody?
-Chcia?by?/Chcia?aby? projektowa? budynki, elewacje I decydowa? o otaczaj?cym Ci? krajobrazie?
-Interesuje Ci? modelowanie komputerowe i nowe technologie?
-Czy interesuje Ci? badanie podstawowych materia?�w budowlanych?
-Czy chcia?by? tworzy? ubrania?
+Czy interesuje Cię studiowanie po angielsku?
+Czy dobrze sobie radzisz z matematyką?
+Czy cenisz sobie zabytki i unikalną, historyczną tkanka miasta?
+Czy interesują Cie przemysł mody?
+Chciałbyś/Chciałabyś projektowa? budynki, elewacje I decydować o otaczającym Cię krajobrazie?
+Interesuje Cie modelowanie komputerowe i nowe technologie?
+Czy interesuje Ci? badanie podstawowych materiałów budowlanych?
+Czy chciałbyś tworzyć ubrania?
 Czy interesuje Ci? przysz?a praca w biurze projektowym lub jako kierownik budowy?
-Czy interesuj? Ci? innowacje w odzie?y?
-Czy interesuje Ci? proces wznoszenia obiekt�w budowlanych?
-Czy interesujesz si? ochron? ?rodowiska?
-Czy chcesz umie? bada? i przewidywa? zachowania konsument�w?
-Czy interesujesz si? polityk??
-Chcia?by?/Chcia?aby? projektowa? systemy wodoci?gowe i kanalizacyjne?
+Czy interesuje Ci? innowacje w odzieży?
+Czy interesuje Ci? proces wznoszenia obiektów budowlanych?
+Czy interesujesz się ochroną środowiska?
+Czy chcesz umieć badać i przewidywać zachowania konsumentów?
+Czy interesujesz się polityką?
+Chciałbyś/Chciałabyś projektować systemy wodociągowe i kanalizacyjne?
 05000000 04000000 22222222 30333333 30333333
 33300200 22200100 11111111 00022022 00033033
 44242000 33131000 11111111 00000111 00000222
