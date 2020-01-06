@@ -1,0 +1,25 @@
+8
+7
+Biogospodarka BINOŻ
+Biotechnologia BINOŻ
+Technologia żywności i żywienie człowieka BINOŻ
+Industrial Biotechnology BINOŻ IFE
+Menedżer żywności i żywienia BINOŻ ZiIP
+Biomedical Engineering and Technologies WEEIA IFE
+Inżynieria biomedyczna WEEIA
+Czy interesuje Cie studiowanie po angielsku?
+Czy interesuje Cie zdrowe żywienie?
+Czy chciałbyś wyjechac na erasmusa?
+Czy lubisz spędzać czas w kuchni?
+Czy chciałbyś studiować na kilku uczenilach na raz?
+Czy interesuje Cię ochrona środowiska?
+Czy interesuje Cię praca badawcza?
+Czy interesują Cię tajniki ludzkiego ciała?
+0005050 0004040 1111111 2220202 3330303
+0050500 0040400 1111111 2202022 3303033
+0005050 0004040 1111111 2220202 3330303
+0050500 0040400 1111111 2202022 3303033
+5000000 4000000 1111111 0222222 0222222
+4404040 3303030 1111111 0020202 0020202
+4400022 4400011 1111111 0011100 0002200
+0220205 0220204 1111111 1001010 2002020
