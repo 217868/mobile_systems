@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="12dp">
+
+    <TextView
+        android:id="@+id/questionNameTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="1. Nazwa pytania"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1. Nazwa pytania" />
+
+    <include
+        android:id="@+id/tick1"
+        layout="@layout/answer_tick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toStartOf="@+id/tick2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionNameTextView" />
+
+    <include
+        android:id="@+id/tick2"
+        layout="@layout/answer_tick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/tick3"
+        app:layout_constraintStart_toEndOf="@+id/tick1"
+        app:layout_constraintTop_toTopOf="@+id/tick1" />
+
+    <include
+        android:id="@+id/tick3"
+        layout="@layout/answer_tick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/tick4"
+        app:layout_constraintStart_toEndOf="@+id/tick2"
+        app:layout_constraintTop_toTopOf="@+id/tick1" />
+
+    <include
+        android:id="@+id/tick4"
+        layout="@layout/answer_tick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/tick5"
+        app:layout_constraintStart_toEndOf="@+id/tick3"
+        app:layout_constraintTop_toTopOf="@+id/tick1" />
+
+    <include
+        android:id="@+id/tick5"
+        layout="@layout/answer_tick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="70dp"
+        android:layout_marginRight="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tick4"
+        app:layout_constraintTop_toTopOf="@+id/tick1" />
+
+    <TextView
+        android:id="@+id/yesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Zdecydowanie tak"
+        android:textSize="10sp"
+        android:alpha="0.5"
+        app:layout_constraintEnd_toEndOf="@+id/tick5"
+        app:layout_constraintStart_toStartOf="@+id/tick5"
+        app:layout_constraintTop_toBottomOf="@+id/tick5" />
+
+    <TextView
+        android:id="@+id/dunnoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Nie wiem"
+        android:textSize="10sp"
+        android:alpha="0.5"
+        app:layout_constraintEnd_toEndOf="@+id/tick3"
+        app:layout_constraintStart_toStartOf="@+id/tick3"
+        app:layout_constraintTop_toBottomOf="@+id/tick3" />
+
+    <TextView
+        android:id="@+id/noTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Zdecydowanie nie"
+        android:alpha="0.5"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/tick1"
+        app:layout_constraintStart_toStartOf="@+id/tick1"
+        app:layout_constraintTop_toBottomOf="@+id/tick1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

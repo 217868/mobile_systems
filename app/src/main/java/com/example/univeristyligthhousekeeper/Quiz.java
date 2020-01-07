@@ -91,6 +91,8 @@ public class Quiz {
 
     public Question GetQuestion(int question_id) { return questions.get(question_id); }
 
+    public Vector<Question> GetQuestionList() {return questions; }
+
     public int getNumberOfQuestions() { return numberOfQuestions; }
 
     public int getNumberOfCategories() { return numberOfCategories; }
