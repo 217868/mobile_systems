@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,6 @@ public class DatabaseAccess {
     private SQLiteOpenHelper openHelper;
     private SQLiteDatabase database;
     private static DatabaseAccess instance;
-    Cursor c = null;
 
     private DatabaseAccess(Context context){
         this.openHelper = new Database(context);
@@ -37,16 +37,17 @@ public class DatabaseAccess {
         List<Wydzial> wydzialy = new ArrayList<Wydzial>();
 
         String selectQuery = "SELECT * FROM wydzialy";
-        c = database.rawQuery(selectQuery, null);
+        Cursor cursor = database.rawQuery(selectQuery, null);
 
-        if (c.moveToFirst()) {
+        if (cursor.moveToFirst()) {
             do {
                 Wydzial wydzial = new Wydzial();
-                wydzial.setId(c.getInt(0));
-                wydzial.setWydzial(c.getString(1));
-                // Adding contact to list
+                wydzial.setId(cursor.getInt(0));
+                wydzial.setWydzial(cursor.getString(1));
+                wydzial.setKierunki(getKierunkidlaWydzialu(wydzial.getId()));
                 wydzialy.add(wydzial);
-            } while (c.moveToNext());
+                Log.d("Wydzial dodany: ", wydzial.getWydzial());
+            } while (cursor.moveToNext());
         }
         return wydzialy;
     }
@@ -56,18 +57,18 @@ public class DatabaseAccess {
         List<Kierunek> kierunki = new ArrayList<Kierunek>();
 
         String selectQuery = "SELECT * FROM kierunki";
-        c = database.rawQuery(selectQuery, null);
+        Cursor cursor = database.rawQuery(selectQuery, null);
 
-        if (c.moveToFirst()) {
+        if (cursor.moveToFirst()) {
             do {
                 Kierunek kierunek = new Kierunek();
-                kierunek.setId(c.getInt(0));
-                kierunek.setWydzialId(c.getInt(1));
-                kierunek.setKierunek(c.getString(2));
-                kierunek.setOpisKierunku(c.getString(3));
+                kierunek.setId(cursor.getInt(0));
+                kierunek.setWydzialId(cursor.getInt(1));
+                kierunek.setKierunek(cursor.getString(2));
+                kierunek.setOpisKierunku(cursor.getString(3));
                 // Adding contact to list
                 kierunki.add(kierunek);
-            } while (c.moveToNext());
+            } while (cursor.moveToNext());
         }
         return kierunki;
     }
@@ -77,16 +78,16 @@ public class DatabaseAccess {
         List<JednostkaNadrzednaKN> jednostkaNadrzedne = new ArrayList<JednostkaNadrzednaKN>();
 
         String selectQuery = "SELECT * FROM jednostki_nadrzedne";
-        c = database.rawQuery(selectQuery, null);
+        Cursor cursor = database.rawQuery(selectQuery, null);
 
-        if (c.moveToFirst()) {
+        if (cursor.moveToFirst()) {
             do {
                 JednostkaNadrzednaKN jednostkaNadrzednaKN = new JednostkaNadrzednaKN();
-                jednostkaNadrzednaKN.setId(c.getInt(0));
-                jednostkaNadrzednaKN.setJednostkaNadrzedna(c.getString(1));
-                // Adding contact to list
+                jednostkaNadrzednaKN.setId(cursor.getInt(0));
+                jednostkaNadrzednaKN.setJednostkaNadrzedna(cursor.getString(1));
+
                 jednostkaNadrzedne.add(jednostkaNadrzednaKN);
-            } while (c.moveToNext());
+            } while (cursor.moveToNext());
         }
         return jednostkaNadrzedne;
     }
@@ -96,20 +97,63 @@ public class DatabaseAccess {
         List<KoloNaukowe> kolaNaukowe = new ArrayList<KoloNaukowe>();
 
         String selectQuery = "SELECT * FROM kola_naukowe";
-        c = database.rawQuery(selectQuery, null);
+        Cursor cursor = database.rawQuery(selectQuery, null);
 
-        if (c.moveToFirst()) {
+        if (cursor.moveToFirst()) {
             do {
                 KoloNaukowe koloNaukowe = new KoloNaukowe();
-                koloNaukowe.setId(c.getInt(0));
-                koloNaukowe.setJNid(c.getInt(1));
-                koloNaukowe.setKoloNaukowe(c.getString(2));
-                koloNaukowe.setOpisKolaNaukowego(c.getString(3));
+                koloNaukowe.setId(cursor.getInt(0));
+                koloNaukowe.setJNid(cursor.getInt(1));
+                koloNaukowe.setKoloNaukowe(cursor.getString(2));
+                koloNaukowe.setOpisKolaNaukowego(cursor.getString(3));
                 // Adding contact to list
                 kolaNaukowe.add(koloNaukowe);
-            } while (c.moveToNext());
+            } while (cursor.moveToNext());
         }
         return kolaNaukowe;
+    }
+
+    public List<Kierunek> getKierunkidlaWydzialu(int id)
+    {
+        List<Kierunek> kierunkiDlaWydzialu = new ArrayList<Kierunek>();
+        String selectQuery = "SELECT * FROM kierunki WHERE wydzialID ='" + id + "';";
+        Cursor cursor = database.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Kierunek kierunek = new Kierunek();
+                kierunek.setId(cursor.getInt(0));
+                kierunek.setWydzialId(cursor.getInt(1));
+                kierunek.setKierunek(cursor.getString(2));
+                kierunek.setOpisKierunku(cursor.getString(3));
+                // Adding contact to list
+                kierunkiDlaWydzialu.add(kierunek);
+                Log.d("Kierunek dodany: ", kierunek.getKierunek());
+            } while (cursor.moveToNext());
+        }
+
+        return kierunkiDlaWydzialu;
+    }
+
+    public List<KoloNaukowe> getKolaNaukoweDlaJN(int id)
+    {
+        List<KoloNaukowe> kolaNaukoweDlaJN = new ArrayList<KoloNaukowe>();
+        String selectQuery = "SELECT * FROM kola_naukowe WHERE jn_id ='" + id + "';";
+        Cursor cursor = database.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                KoloNaukowe koloNaukowe = new KoloNaukowe();
+                koloNaukowe.setId(cursor.getInt(0));
+                koloNaukowe.setJNid(cursor.getInt(1));
+                koloNaukowe.setKoloNaukowe(cursor.getString(2));
+                koloNaukowe.setOpisKolaNaukowego(cursor.getString(3));
+                // Adding contact to list
+                kolaNaukoweDlaJN.add(koloNaukowe);
+            } while (cursor.moveToNext());
+        }
+
+        return kolaNaukoweDlaJN;
     }
 
 }

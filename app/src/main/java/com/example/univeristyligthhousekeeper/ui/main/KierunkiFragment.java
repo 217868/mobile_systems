@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.univeristyligthhousekeeper.DatabaseModel.DatabaseAccess;
+import com.example.univeristyligthhousekeeper.DatabaseModel.Kierunek;
 import com.example.univeristyligthhousekeeper.DatabaseModel.Wydzial;
 import com.example.univeristyligthhousekeeper.MainActivityTabbed;
 import com.example.univeristyligthhousekeeper.R;
@@ -113,7 +114,7 @@ public class KierunkiFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(Kierunek item);
 
         void onListFragmentInteraction(Wydzial item);
     }
