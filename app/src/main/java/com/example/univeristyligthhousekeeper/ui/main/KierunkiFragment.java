@@ -12,11 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.univeristyligthhousekeeper.MainActivityTabbed;
 import com.example.univeristyligthhousekeeper.R;
 import com.example.univeristyligthhousekeeper.ui.main.dummy.DummyContent;
 import com.example.univeristyligthhousekeeper.ui.main.dummy.DummyContent.DummyItem;
-
-import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -62,7 +61,6 @@ public class KierunkiFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_kierunki_list, container, false);
-
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
