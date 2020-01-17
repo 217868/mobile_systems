@@ -1,10 +1,13 @@
 package com.example.univeristyligthhousekeeper.ui.main;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.univeristyligthhousekeeper.DatabaseModel.JednostkaNadrzednaKN;
@@ -21,6 +24,7 @@ import java.util.List;
  */
 public class MyKolaRecyclerViewAdapter extends RecyclerView.Adapter<MyKolaRecyclerViewAdapter.ViewHolder> {
 
+    private RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
     private final List<JednostkaNadrzednaKN> mValues;
     private final OnListFragmentInteractionListener mListener;
 
@@ -41,6 +45,19 @@ public class MyKolaRecyclerViewAdapter extends RecyclerView.Adapter<MyKolaRecycl
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(Integer.toString(mValues.get(position).getId()));
         holder.mContentView.setText(mValues.get(position).getJednostkaNadrzedna());
+
+        @SuppressLint("WrongConstant")
+        LinearLayoutManager layoutManager = new LinearLayoutManager(
+                holder.recyclerViewSub.getContext(),
+                LinearLayout.VERTICAL,
+                false);
+
+        layoutManager.setInitialPrefetchItemCount(mValues.get(position).getKolaNaukowe().size());
+
+        MySubKolaRecyclerViewAdapter subRecycler = new MySubKolaRecyclerViewAdapter(mValues.get(position).getKolaNaukowe(), mListener);
+        holder.recyclerViewSub.setLayoutManager(layoutManager);
+        holder.recyclerViewSub.setAdapter(subRecycler);
+        holder.recyclerViewSub.setRecycledViewPool(viewPool);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,12 +81,14 @@ public class MyKolaRecyclerViewAdapter extends RecyclerView.Adapter<MyKolaRecycl
         public final TextView mIdView;
         public final TextView mContentView;
         public JednostkaNadrzednaKN mItem;
+        public RecyclerView recyclerViewSub;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
             mIdView = (TextView) view.findViewById(R.id.item_number);
             mContentView = (TextView) view.findViewById(R.id.content);
+            recyclerViewSub = view.findViewById(R.id.sub_kolo);
         }
 
         @Override

@@ -85,7 +85,7 @@ public class DatabaseAccess {
                 JednostkaNadrzednaKN jednostkaNadrzednaKN = new JednostkaNadrzednaKN();
                 jednostkaNadrzednaKN.setId(cursor.getInt(0));
                 jednostkaNadrzednaKN.setJednostkaNadrzedna(cursor.getString(1));
-
+                jednostkaNadrzednaKN.setKolaNaukowe(getKolaNaukoweDlaJN(jednostkaNadrzednaKN.getId()));
                 jednostkaNadrzedne.add(jednostkaNadrzednaKN);
             } while (cursor.moveToNext());
         }

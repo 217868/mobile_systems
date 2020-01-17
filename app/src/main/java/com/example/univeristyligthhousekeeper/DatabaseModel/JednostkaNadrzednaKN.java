@@ -18,6 +18,11 @@ public class JednostkaNadrzednaKN {
     public JednostkaNadrzednaKN(int id, String jednostkaNadrzedna) {
         this.id = id;
         this.jednostkaNadrzedna = jednostkaNadrzedna;
+        this.context = context;
+        databaseAccess = DatabaseAccess.getInstance(context);
+        databaseAccess.open();
+        this.kolaNaukowe = databaseAccess.getKolaNaukoweDlaJN(id);
+        databaseAccess.close();
     }
 
     public int getId() {

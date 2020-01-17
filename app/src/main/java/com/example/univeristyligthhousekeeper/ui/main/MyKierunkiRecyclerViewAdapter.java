@@ -53,8 +53,6 @@ public class MyKierunkiRecyclerViewAdapter extends RecyclerView.Adapter<MyKierun
                 LinearLayout.VERTICAL,
                 false);
 
-        String c = mValues.get(position).getWydzial();
-        Log.d("my tag", "count of kierunki is "  + c);
         layoutManager.setInitialPrefetchItemCount(mValues.get(position).getKierunki().size());
 
         MySubKierunekRecyclerView subRecycler = new MySubKierunekRecyclerView(mValues.get(position).getKierunki(), mListener);

@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.example.univeristyligthhousekeeper.DatabaseModel.DatabaseAccess;
 import com.example.univeristyligthhousekeeper.DatabaseModel.JednostkaNadrzednaKN;
+import com.example.univeristyligthhousekeeper.DatabaseModel.KoloNaukowe;
 import com.example.univeristyligthhousekeeper.DatabaseModel.Wydzial;
 import com.example.univeristyligthhousekeeper.MainActivityTabbed;
 import com.example.univeristyligthhousekeeper.R;
@@ -113,8 +114,10 @@ public class KolaFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onListFragmentInteraction(DummyItem item);
+
+        // TODO: Update argument type and name
+        void onListFragmentInteraction(KoloNaukowe item);
 
         void onListFragmentInteraction(JednostkaNadrzednaKN item);
     }
