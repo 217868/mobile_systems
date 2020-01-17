@@ -1,0 +1,36 @@
+10
+14
+Inżynieria wzornictwa przemysłowego Wydział Technologii Materiałowych i Wzornictwa Tekstyliów
+Transport WEEIA
+Inżynieria zarządzania Wydział Zarządzania i Inżynierii Produkcji
+Logistyka Wydział Zarządzania i Inżynierii Produkcji
+Zarządzanie Wydział Zarządzania i Inżynierii Produkcji
+Management Wydział Zarządzania i Inżynierii Produkcji
+Zarządzanie i inżynieria produkcji Wydział Zarządzania i Inżynierii Produkcji
+Businnes and Technologies Wydział Zarządzania i Inżynierii Produkcji
+Gestion et Technology Wydział Zarządzania i Inżynierii Produkcji
+Industrial Biotechnology BINOŻ IFE
+Inżynieria materiałowa Wydział Mechaniczny
+Matematyka stosowana FTIMS
+Inżynieria bezpieczeństwa pracy Wydział Inżynierii Procesowej i Ochrony Środowiska
+Papiernictwo i poligrafia Wydział Zarządzania i Inżynierii Produkcji
+Czy interesuje Cie logistyka transportu?
+Czy chciałbyś studiować po angielsku?
+Czy chciałbyś studiować po francusku?
+Czy interesuje Cie planowanie produkcji?
+Czy interesuje Cie ekonomia?
+Czy interesuje Cie ochrona środkowiska?
+Czy chciałbyś wyjechać na Erasmusa?
+Czy interesują Cie nowoczesne materiały?
+Czy interesuje Cie prawo ochrony pracy?
+Czy interesuje Cie papiernictwo lub poligrafia?
+05020000000000 04010000000000 11111111111111 10101111111111 20202222222222
+00005005050000 00004004040000 11111111111111 11111111010111 22222222022022
+00000000500000 00000000400000 00000000000000 00000000000000 00000000000000
+40321111143002 30221111132001 11111111111111 02000000000220 02000000000220
+00113303300400 00113303300400 11111111111111 11000010011011 11000010011011
+23000000045002 23000000034002 11111111111111 11022010212010 12120002102020
+00005005550000 00004004440000 11111111111111 11111111010111 22222222022022
+50000000034005 40000000023004 11111111111111 21200210201021 10102021010200
+00000000000090 00000000000080 44444444444404 44444444444404 44444444444404
+00011111111114 00010101010014 11111111111111 12120002120020 11102002200210

@@ -1,0 +1,19 @@
+5
+6
+Inżynieria materiałowa Wydział Mechaniczny
+Mechanika i budowa maszyn Wydział Mechaniczny
+Mechanical Engineering Wydział Mechaniczny IFE
+Energetyka Wydział Mechaniczny
+Fizyka techniczna FTIMS
+Science and Technology FTIMS IFE
+Czy interesują Cię materiały?
+Czy interesuje Cie budowa maszyn?
+Czy interesuje Cię ochrona środowiska?
+Czy chciałbyś zajmować się techniczną stroną fizyki?
+Czy chciałbyś studiować po angielsku?
+500000 400000 111111 011111 022222
+053020 042010 111111 100101 200202
+200500 100400 111111 022022 022022
+111155 111144 111111 000000 000000
+005005 004004 111111 220220 330330
+

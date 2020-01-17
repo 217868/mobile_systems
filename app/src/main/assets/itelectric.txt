@@ -1,0 +1,41 @@
+12
+14
+Information Technology FTIMS IFE
+Informatyka stosowana FTIMS
+Automatyka i robotyka WEEIA
+Automatyka i sterowanie robotów WEEIA
+Elektronika i telekomunikacja WEEIA
+Elektrotechnika WEEIA
+Informatyka WEEIA
+Mechatronika WEEIA
+Systemy sterowania inteligentnymi budynkami WEEIA
+Computer Science WEEIA IFE
+Electronic and Telecommunication Engineering WEEIA IFE
+Transport WEEIA
+Energetyka Wydział Mechaniczny
+Matematyka stosowana FTIMS
+Czy interesujesz się ochroną środowiska?
+Czy chciałbyś wyjechać na Erasmusa?
+Interesuje Cie modelowanie komputerowe?
+Czy interesuje Cie programowanie robotów?
+Czy chciałbyś studiować po angielsku?
+Czy interesuje Cie programowanie ogólnie?
+Czy interesuje Cie budowanie robotów?
+Czy ciekawi Cie zagadnienie inteligentnych domów?
+Czy interesuje Cie wdrażanie systemów nadzorujących przebieg procesów technologicznych lub produkcyjnych?
+Czy interesuje Cie logistyka transportu?
+Czy chciałbyś pracować z cyfrowymi układami elektornicznymi?
+Czy intersuje Cie analiza danych?
+00000200400550 00000100300440 11111111111111 11111011011001 22222022022002
+50000000055000 40000000044000 11111111111111 00000000000000 00000000000000
+33001121221201 12121312123123 11111111111111 12123001230101 12012010212000
+00552220200000 00441110100000 11111111111111 22000002022222 22000002022222
+50000000055000 40000000044000 11111111111111 00000000000000 00000000000000
+55003350253000 44002240142000 11111111111111 00110001000111 00220002000222
+00552220200000 00441110100000 11111111111111 22000002022222 22000002022222
+22342221932212 22342221532212 11111111111111 11111111111111 11111111111111
+00002505005000 00002404004000 11111111111111 12121212121212 11220212002120
+00000000000500 00000000000500 11111111111111 11111111111111 11111111111111
+00335505215000 00334404215000 11111111111111 11000010000111 22000020000222
+22000002000005 22000000200005 11111111111111 00121212121210 00121212122120
+
