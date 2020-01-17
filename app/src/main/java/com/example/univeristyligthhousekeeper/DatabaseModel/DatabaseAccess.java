@@ -71,4 +71,45 @@ public class DatabaseAccess {
         }
         return kierunki;
     }
+
+    public List<JednostkaNadrzednaKN> getJednostkiNadrzedne()
+    {
+        List<JednostkaNadrzednaKN> jednostkaNadrzedne = new ArrayList<JednostkaNadrzednaKN>();
+
+        String selectQuery = "SELECT * FROM jednostki_nadrzedne";
+        c = database.rawQuery(selectQuery, null);
+
+        if (c.moveToFirst()) {
+            do {
+                JednostkaNadrzednaKN jednostkaNadrzednaKN = new JednostkaNadrzednaKN();
+                jednostkaNadrzednaKN.setId(c.getInt(0));
+                jednostkaNadrzednaKN.setJednostkaNadrzedna(c.getString(1));
+                // Adding contact to list
+                jednostkaNadrzedne.add(jednostkaNadrzednaKN);
+            } while (c.moveToNext());
+        }
+        return jednostkaNadrzedne;
+    }
+
+    public List<KoloNaukowe> getKolaNaukowe()
+    {
+        List<KoloNaukowe> kolaNaukowe = new ArrayList<KoloNaukowe>();
+
+        String selectQuery = "SELECT * FROM kola_naukowe";
+        c = database.rawQuery(selectQuery, null);
+
+        if (c.moveToFirst()) {
+            do {
+                KoloNaukowe koloNaukowe = new KoloNaukowe();
+                koloNaukowe.setId(c.getInt(0));
+                koloNaukowe.setJNid(c.getInt(1));
+                koloNaukowe.setKoloNaukowe(c.getString(2));
+                koloNaukowe.setOpisKolaNaukowego(c.getString(3));
+                // Adding contact to list
+                kolaNaukowe.add(koloNaukowe);
+            } while (c.moveToNext());
+        }
+        return kolaNaukowe;
+    }
+
 }
