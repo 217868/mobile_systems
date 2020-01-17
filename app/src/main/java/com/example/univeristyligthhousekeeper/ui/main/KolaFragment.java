@@ -12,10 +12,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.univeristyligthhousekeeper.DatabaseModel.DatabaseAccess;
+import com.example.univeristyligthhousekeeper.DatabaseModel.JednostkaNadrzednaKN;
+import com.example.univeristyligthhousekeeper.DatabaseModel.Wydzial;
 import com.example.univeristyligthhousekeeper.MainActivityTabbed;
 import com.example.univeristyligthhousekeeper.R;
 import com.example.univeristyligthhousekeeper.ui.main.dummy.DummyContent;
 import com.example.univeristyligthhousekeeper.ui.main.dummy.DummyContent.DummyItem;
+
+import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -30,6 +35,7 @@ public class KolaFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
+    DatabaseAccess databaseAccess;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -51,7 +57,7 @@ public class KolaFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        databaseAccess = DatabaseAccess.getInstance(getContext());
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
@@ -70,7 +76,10 @@ public class KolaFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyKolaRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            databaseAccess.open();
+            List<JednostkaNadrzednaKN> jednostkiNadrzedne = databaseAccess.getJednostkiNadrzedne();
+            databaseAccess.close();
+            recyclerView.setAdapter(new MyKolaRecyclerViewAdapter(jednostkiNadrzedne, mListener));
         }
         return view;
     }
@@ -106,5 +115,7 @@ public class KolaFragment extends Fragment {
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
         void onListFragmentInteraction(DummyItem item);
+
+        void onListFragmentInteraction(JednostkaNadrzednaKN item);
     }
 }

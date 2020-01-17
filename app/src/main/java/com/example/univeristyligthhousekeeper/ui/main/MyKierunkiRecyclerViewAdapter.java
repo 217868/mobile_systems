@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.univeristyligthhousekeeper.DatabaseModel.Wydzial;
 import com.example.univeristyligthhousekeeper.R;
 import com.example.univeristyligthhousekeeper.ui.main.KierunkiFragment.OnListFragmentInteractionListener;
 import com.example.univeristyligthhousekeeper.ui.main.dummy.DummyContent.DummyItem;
@@ -20,10 +21,10 @@ import java.util.List;
  */
 public class MyKierunkiRecyclerViewAdapter extends RecyclerView.Adapter<MyKierunkiRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<Wydzial> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyKierunkiRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyKierunkiRecyclerViewAdapter(List<Wydzial> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -38,8 +39,8 @@ public class MyKierunkiRecyclerViewAdapter extends RecyclerView.Adapter<MyKierun
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(Integer.toString(mValues.get(position).getId()));
+        holder.mContentView.setText(mValues.get(position).getWydzial());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +63,7 @@ public class MyKierunkiRecyclerViewAdapter extends RecyclerView.Adapter<MyKierun
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public Wydzial mItem;
 
         public ViewHolder(View view) {
             super(view);

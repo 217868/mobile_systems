@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import com.example.univeristyligthhousekeeper.DatabaseModel.DatabaseAccess;
+import com.example.univeristyligthhousekeeper.DatabaseModel.JednostkaNadrzednaKN;
 import com.example.univeristyligthhousekeeper.DatabaseModel.Kierunek;
 import com.example.univeristyligthhousekeeper.DatabaseModel.Wydzial;
 import com.example.univeristyligthhousekeeper.ui.main.KierunkiFragment;
@@ -72,12 +73,22 @@ public class MainActivityTabbed extends AppCompatActivity implements KolaFragmen
     }
 
     @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+    public void onListFragmentInteraction(Wydzial item) {
 
     }
 
     @Override
     public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(JednostkaNadrzednaKN item) {
 
     }
 }
