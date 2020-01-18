@@ -54,19 +54,6 @@ public class MainActivityTabbed extends AppCompatActivity implements KolaFragmen
         goToPollButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                databaseAccess.open();
-                List<Wydzial> wydzialy = databaseAccess.getWydzialy();
-                List<Kierunek> kierunki = databaseAccess.getKierunkidlaWydzialu(1);
-                for (Wydzial w : wydzialy) {
-                    Log.d("My tag", w.getId() + ". " + w.getWydzial());
-                }
-
-                databaseAccess.close();
-               for (Kierunek k : kierunki) {
-                   Log.d("My tag", k.getId() + ". " + k.getWydzialId() + " " + k.getKierunek() + " " + k.getOpisKierunku());
-
-               }
-
 
                 Intent intent = new Intent(MainActivityTabbed.this, PollActivity.class);
                 MainActivityTabbed.this.startActivity(intent);

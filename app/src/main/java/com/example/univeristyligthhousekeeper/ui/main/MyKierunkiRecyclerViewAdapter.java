@@ -83,6 +83,7 @@ public class MyKierunkiRecyclerViewAdapter extends RecyclerView.Adapter<MyKierun
         public final TextView mContentView;
         public Wydzial mItem;
         public RecyclerView recyclerViewSub;
+        public LinearLayout linearLayout;
 
         public ViewHolder(View view) {
             super(view);
@@ -90,7 +91,20 @@ public class MyKierunkiRecyclerViewAdapter extends RecyclerView.Adapter<MyKierun
             mIdView = (TextView) view.findViewById(R.id.item_number);
             mContentView = (TextView) view.findViewById(R.id.content);
             recyclerViewSub = view.findViewById(R.id.sub_item);
+            linearLayout = view.findViewById(R.id.linearKierunek);
+            recyclerViewSub.setVisibility(View.GONE);
+
+            linearLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(recyclerViewSub.getVisibility() == View.VISIBLE)
+                        recyclerViewSub.setVisibility(View.GONE);
+                    else recyclerViewSub.setVisibility(View.VISIBLE);
+                }
+
+            });
         }
+
 
         @Override
         public String toString() {

@@ -82,6 +82,7 @@ public class MyKolaRecyclerViewAdapter extends RecyclerView.Adapter<MyKolaRecycl
         public final TextView mContentView;
         public JednostkaNadrzednaKN mItem;
         public RecyclerView recyclerViewSub;
+        public LinearLayout linearLayout;
 
         public ViewHolder(View view) {
             super(view);
@@ -89,6 +90,18 @@ public class MyKolaRecyclerViewAdapter extends RecyclerView.Adapter<MyKolaRecycl
             mIdView = (TextView) view.findViewById(R.id.item_number);
             mContentView = (TextView) view.findViewById(R.id.content);
             recyclerViewSub = view.findViewById(R.id.sub_kolo);
+            linearLayout = view.findViewById(R.id.linearKolo);
+            recyclerViewSub.setVisibility(View.GONE);
+
+            linearLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(recyclerViewSub.getVisibility() == View.VISIBLE)
+                        recyclerViewSub.setVisibility(View.GONE);
+                    else recyclerViewSub.setVisibility(View.VISIBLE);
+                }
+
+            });
         }
 
         @Override
