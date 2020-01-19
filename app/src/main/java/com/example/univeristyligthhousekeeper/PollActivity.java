@@ -2,24 +2,53 @@ package com.example.univeristyligthhousekeeper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.univeristyligthhousekeeper.ui.main.QuizResultActivity;
+
 public class PollActivity extends AppCompatActivity {
 
     LinearLayout questionsListLayout;
+    Button nextButton;
     Quiz quiz;
+    boolean isSecondQuiz = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_poll);
 
-        quiz = new Quiz("firstquiz.txt", getAssets());
-        
+        isSecondQuiz = getIntent().getBooleanExtra("IS_SECOND", false);
+
+        if (!isSecondQuiz)
+            quiz = new Quiz("firstquiz.txt", getAssets());
+        else {
+            quiz = new Quiz(getIntent().getStringExtra("RESULT"), getAssets());
+        }
+
+        nextButton = findViewById(R.id.nextButton);
+
+        if(isSecondQuiz) nextButton.setText("Wynik");
+
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isSecondQuiz) {
+                    runResult(quiz.calcualtePoints());
+                }
+                else {
+                    runSecondQuiz(quiz.calcualtePoints());
+                }
+            }
+        });
+
         questionsListLayout = findViewById(R.id.questionsListLayout);
         for (int i = 0; i < quiz.GetQuestionList().size(); i++) {
             final int x = i;
@@ -93,6 +122,22 @@ public class PollActivity extends AppCompatActivity {
             iv.setVisibility(View.GONE);
         }
         views[answerNumber - 1].setVisibility(View.VISIBLE);
-        quiz.SetUserAnswer(questionNumber, answerNumber);
+        quiz.SetUserAnswer(questionNumber, answerNumber - 1);
+        Log.wtf("Question: ", quiz.GetQuestion(questionNumber).getContent() + " | Answer: " + answerNumber);
+    }
+
+    void runResult(String result) {
+        Intent intent = new Intent(this, QuizResultActivity.class);
+        Log.wtf("RESULT: ", result);
+        intent.putExtra("RESULT", result);
+        this.startActivity(intent);
+    }
+
+    void runSecondQuiz(String quizName) {
+        Intent intent = new Intent(this, PollActivity.class);
+        Log.wtf("RESULT: ", quizName);
+        intent.putExtra("RESULT", quizName);
+        intent.putExtra("IS_SECOND", true);
+        this.startActivity(intent);
     }
 }

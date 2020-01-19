@@ -1,6 +1,5 @@
 package com.example.univeristyligthhousekeeper;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,24 +12,15 @@ import com.example.univeristyligthhousekeeper.DatabaseModel.Wydzial;
 import com.example.univeristyligthhousekeeper.ui.main.KierunkiFragment;
 import com.example.univeristyligthhousekeeper.ui.main.KolaFragment;
 import com.example.univeristyligthhousekeeper.ui.main.UczelniaFragment;
-import com.example.univeristyligthhousekeeper.ui.main.dummy.DummyContent;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.univeristyligthhousekeeper.ui.main.SectionsPagerAdapter;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.List;
 
 public class MainActivityTabbed extends AppCompatActivity implements KolaFragment.OnListFragmentInteractionListener, KierunkiFragment.OnListFragmentInteractionListener, UczelniaFragment.OnFragmentInteractionListener {
 
@@ -74,11 +64,6 @@ public class MainActivityTabbed extends AppCompatActivity implements KolaFragmen
 
     @Override
     public void onFragmentInteraction(Uri uri) {
-
-    }
-
-    @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
 
     }
 

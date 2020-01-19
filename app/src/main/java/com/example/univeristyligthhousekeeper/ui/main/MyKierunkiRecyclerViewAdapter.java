@@ -4,7 +4,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import android.widget.TextView;
 import com.example.univeristyligthhousekeeper.DatabaseModel.Wydzial;
 import com.example.univeristyligthhousekeeper.R;
 import com.example.univeristyligthhousekeeper.ui.main.KierunkiFragment.OnListFragmentInteractionListener;
-import com.example.univeristyligthhousekeeper.ui.main.dummy.DummyContent.DummyItem;
 
 import java.util.List;
 
@@ -28,6 +26,8 @@ public class MyKierunkiRecyclerViewAdapter extends RecyclerView.Adapter<MyKierun
     private RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
     private final List<Wydzial> mValues;
     private final OnListFragmentInteractionListener mListener;
+    int mExpandedPosition = -1;
+    int previousExpandedPosition = -1;
 
     public MyKierunkiRecyclerViewAdapter(List<Wydzial> items, OnListFragmentInteractionListener listener) {
         mValues = items;
@@ -37,7 +37,7 @@ public class MyKierunkiRecyclerViewAdapter extends RecyclerView.Adapter<MyKierun
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_kierunki2, parent, false);
+                .inflate(R.layout.kierunek_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -60,14 +60,34 @@ public class MyKierunkiRecyclerViewAdapter extends RecyclerView.Adapter<MyKierun
         holder.recyclerViewSub.setAdapter(subRecycler);
         holder.recyclerViewSub.setRecycledViewPool(viewPool);
 
-        holder.mView.setOnClickListener(new View.OnClickListener() {
+//        holder.mView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(holder.recyclerViewSub.getVisibility() == View.VISIBLE)
+//                    holder.recyclerViewSub.setVisibility(View.GONE);
+//                else holder.recyclerViewSub.setVisibility(View.VISIBLE);
+//                if (null != mListener) {
+//                    // Notify the active callbacks interface (the activity, if the
+//                    // fragment is attached to one) that an item has been selected.
+//                    mListener.onListFragmentInteraction(holder.mItem);
+//                }
+//            }
+//        });
+
+        final boolean isExpanded = position==mExpandedPosition;
+        holder.recyclerViewSub.setVisibility(isExpanded?View.VISIBLE:View.GONE);
+        holder.itemView.setActivated(isExpanded);
+        final int finPosition = position;
+
+        if (isExpanded)
+            previousExpandedPosition = position;
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (null != mListener) {
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
-                }
+                mExpandedPosition = isExpanded ? -1:finPosition;
+                notifyItemChanged(previousExpandedPosition);
+                notifyItemChanged(finPosition);
             }
         });
     }
@@ -83,7 +103,6 @@ public class MyKierunkiRecyclerViewAdapter extends RecyclerView.Adapter<MyKierun
         public final TextView mContentView;
         public Wydzial mItem;
         public RecyclerView recyclerViewSub;
-        public LinearLayout linearLayout;
 
         public ViewHolder(View view) {
             super(view);
@@ -91,15 +110,12 @@ public class MyKierunkiRecyclerViewAdapter extends RecyclerView.Adapter<MyKierun
             mIdView = (TextView) view.findViewById(R.id.item_number);
             mContentView = (TextView) view.findViewById(R.id.content);
             recyclerViewSub = view.findViewById(R.id.sub_item);
-            linearLayout = view.findViewById(R.id.linearKierunek);
             recyclerViewSub.setVisibility(View.GONE);
 
-            linearLayout.setOnClickListener(new View.OnClickListener() {
+            view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(recyclerViewSub.getVisibility() == View.VISIBLE)
-                        recyclerViewSub.setVisibility(View.GONE);
-                    else recyclerViewSub.setVisibility(View.VISIBLE);
+
                 }
 
             });
