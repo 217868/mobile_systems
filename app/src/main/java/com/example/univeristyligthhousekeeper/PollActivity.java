@@ -24,7 +24,7 @@ public class PollActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_poll);
-
+        quiz = new Quiz("firstquiz.txt", getAssets());
         isSecondQuiz = getIntent().getBooleanExtra("IS_SECOND", false);
 
         if (!isSecondQuiz)
@@ -48,6 +48,7 @@ public class PollActivity extends AppCompatActivity {
                 }
             }
         });
+
 
         questionsListLayout = findViewById(R.id.questionsListLayout);
         for (int i = 0; i < quiz.GetQuestionList().size(); i++) {
