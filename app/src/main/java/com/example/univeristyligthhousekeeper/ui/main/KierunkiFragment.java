@@ -15,10 +15,7 @@ import android.view.ViewGroup;
 import com.example.univeristyligthhousekeeper.DatabaseModel.DatabaseAccess;
 import com.example.univeristyligthhousekeeper.DatabaseModel.Kierunek;
 import com.example.univeristyligthhousekeeper.DatabaseModel.Wydzial;
-import com.example.univeristyligthhousekeeper.MainActivityTabbed;
 import com.example.univeristyligthhousekeeper.R;
-import com.example.univeristyligthhousekeeper.ui.main.dummy.DummyContent;
-import com.example.univeristyligthhousekeeper.ui.main.dummy.DummyContent.DummyItem;
 
 import java.util.List;
 
@@ -68,19 +65,19 @@ public class KierunkiFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_kierunki_list, container, false);
         // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
-            databaseAccess.open();
-            List<Wydzial> wydzialy = databaseAccess.getWydzialy();
-            databaseAccess.close();
-            recyclerView.setAdapter(new MyKierunkiRecyclerViewAdapter(wydzialy, mListener));
+
+        Context context = view.getContext();
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
+        if (mColumnCount <= 1) {
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        } else {
+            recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
         }
+        databaseAccess.open();
+        List<Wydzial> wydzialy = databaseAccess.getWydzialy();
+        databaseAccess.close();
+        recyclerView.setAdapter(new MyKierunkiRecyclerViewAdapter(wydzialy, mListener));
+
         return view;
     }
 
