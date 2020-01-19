@@ -19,7 +19,7 @@ public class PollActivity extends AppCompatActivity {
         setContentView(R.layout.activity_poll);
 
         quiz = new Quiz("firstquiz.txt", getAssets());
-        
+
         questionsListLayout = findViewById(R.id.questionsListLayout);
         for (int i = 0; i < quiz.GetQuestionList().size(); i++) {
             final int x = i;
