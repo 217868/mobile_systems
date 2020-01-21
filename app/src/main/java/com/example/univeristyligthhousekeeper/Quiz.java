@@ -42,8 +42,8 @@ public class Quiz {
             String line;
 
             while ((line = reader.readLine()) != null) {
-                System.out.println("Czytam od nowa");
-                System.out.println(i);
+             //   System.out.println("Czytam od nowa");
+               // System.out.println(i);
                 if(i==0)
                     this.numberOfQuestions = Integer.parseInt(line);
                 else if(i == 1) {
@@ -56,8 +56,8 @@ public class Quiz {
             userAnswers = new int [numberOfQuestions];
             namesOfCategories = new String[numberOfCategories];
             while ((line = reader.readLine()) != null) {
-                System.out.println("Czytam pytania");
-                System.out.println(i);
+              //  System.out.println("Czytam pytania");
+             //   System.out.println(i);
                 if(i > 1 && i < (2+numberOfCategories))
                 {
                     namesOfCategories[i-2] = line;
@@ -75,15 +75,15 @@ public class Quiz {
                     {
                         for(int k = 0; k < numberOfCategories; k++)
                         {
-                            System.out.println(j + " " + k);
-                            System.out.println(answers[j][k]);
+                      //      System.out.println(j + " " + k);
+                       //     System.out.println(answers[j][k]);
                             answers[j][k] =  Integer.parseInt(String.valueOf(line.charAt(j*(numberOfCategories+1) + k)));
                         }
                     }
                     Answers answers1 = new Answers(answers);
                     questions.get(i - 2 - numberOfCategories - numberOfQuestions).setAnswers(answers1);
                 }
-                System.out.println(line);
+              //  System.out.println(line);
                 i++;
             }
             reader.close();
