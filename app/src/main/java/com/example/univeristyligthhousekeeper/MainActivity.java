@@ -23,12 +23,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        Quiz quiz = new Quiz("firstquiz.txt", getAssets());
-        String nowyquiz;
-        nowyquiz = quiz.calcualtePoints();
-        Quiz drugiquiz = new Quiz(nowyquiz,getAssets());
-
         }
     }
 

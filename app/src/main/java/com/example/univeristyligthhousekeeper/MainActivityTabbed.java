@@ -1,6 +1,5 @@
 package com.example.univeristyligthhousekeeper;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,25 +11,18 @@ import com.example.univeristyligthhousekeeper.DatabaseModel.KoloNaukowe;
 import com.example.univeristyligthhousekeeper.DatabaseModel.Wydzial;
 import com.example.univeristyligthhousekeeper.ui.main.KierunkiFragment;
 import com.example.univeristyligthhousekeeper.ui.main.KolaFragment;
+import com.example.univeristyligthhousekeeper.ui.main.ListResultActivity;
+import com.example.univeristyligthhousekeeper.ui.main.MySubKierunekRecyclerView;
 import com.example.univeristyligthhousekeeper.ui.main.UczelniaFragment;
-import com.example.univeristyligthhousekeeper.ui.main.dummy.DummyContent;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.univeristyligthhousekeeper.ui.main.SectionsPagerAdapter;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.List;
 
 public class MainActivityTabbed extends AppCompatActivity implements KolaFragment.OnListFragmentInteractionListener, KierunkiFragment.OnListFragmentInteractionListener, UczelniaFragment.OnFragmentInteractionListener {
 
@@ -64,7 +56,9 @@ public class MainActivityTabbed extends AppCompatActivity implements KolaFragmen
 
     @Override
     public void onListFragmentInteraction(Kierunek item) {
-
+        Intent intent = new Intent(this, ListResultActivity.class);
+        intent.putExtra("SELECTED_ID", item.getId());
+        this.startActivity(intent);
     }
 
     @Override
@@ -78,11 +72,6 @@ public class MainActivityTabbed extends AppCompatActivity implements KolaFragmen
     }
 
     @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
-
-    }
-
-    @Override
     public void onListFragmentInteraction(KoloNaukowe item) {
 
     }
@@ -91,4 +80,5 @@ public class MainActivityTabbed extends AppCompatActivity implements KolaFragmen
     public void onListFragmentInteraction(JednostkaNadrzednaKN item) {
 
     }
+
 }

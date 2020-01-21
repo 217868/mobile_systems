@@ -1,6 +1,8 @@
 package com.example.univeristyligthhousekeeper.ui.main;
 
+import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.univeristyligthhousekeeper.DatabaseModel.Kierunek;
 import com.example.univeristyligthhousekeeper.DatabaseModel.Wydzial;
+import com.example.univeristyligthhousekeeper.MainActivityTabbed;
 import com.example.univeristyligthhousekeeper.R;
 
 import java.util.List;
@@ -19,16 +22,19 @@ public class MySubKierunekRecyclerView extends RecyclerView.Adapter<MySubKierune
 
     private final List<Kierunek> mValues;
     private final KierunkiFragment.OnListFragmentInteractionListener mListener;
+    private Context context;
 
-    public  MySubKierunekRecyclerView(List<Kierunek> mValues, KierunkiFragment.OnListFragmentInteractionListener mListener ){
+    public  MySubKierunekRecyclerView(List<Kierunek> mValues, KierunkiFragment.OnListFragmentInteractionListener mListener, Context context ){
         this.mValues = mValues;
         this.mListener = mListener;
+        this.context = context;
     }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.subkierunek, parent, false);
+
         return new MySubKierunekRecyclerView.ViewHolder(view);
     }
 
@@ -41,8 +47,6 @@ public class MySubKierunekRecyclerView extends RecyclerView.Adapter<MySubKierune
             @Override
             public void onClick(View v) {
                 if (null != mListener) {
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
                     mListener.onListFragmentInteraction(holder.mItem);
                 }
             }
@@ -69,5 +73,6 @@ public class MySubKierunekRecyclerView extends RecyclerView.Adapter<MySubKierune
         public String toString() {
             return super.toString() + " '" + mContentView.getText() + "'";
         }
+
     }
 }

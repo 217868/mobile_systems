@@ -13,7 +13,6 @@ import android.widget.TextView;
 import com.example.univeristyligthhousekeeper.DatabaseModel.JednostkaNadrzednaKN;
 import com.example.univeristyligthhousekeeper.R;
 import com.example.univeristyligthhousekeeper.ui.main.KolaFragment.OnListFragmentInteractionListener;
-import com.example.univeristyligthhousekeeper.ui.main.dummy.DummyContent.DummyItem;
 
 import java.util.List;
 
