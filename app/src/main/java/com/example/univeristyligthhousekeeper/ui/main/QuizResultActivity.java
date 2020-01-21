@@ -28,7 +28,7 @@ public class QuizResultActivity extends AppCompatActivity {
     List<Kierunek> kierunki;
     Kierunek selectedKierunek;
     Wydzial selectedWydzial;
-    String resultString;
+    int result = 0;
     TextView kierunekDescriptionTextView;
     Button backButton;
     ImageView wydzialLogoImageView2;
@@ -39,16 +39,10 @@ public class QuizResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz_result);
 
         databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
-        resultString = getIntent().getStringExtra("RESULT");
+        result = Integer.parseInt(getIntent().getStringExtra("RESULT"));
 
         databaseAccess.open();
-        kierunki = databaseAccess.getKierunki();
-        databaseAccess.close();
-        for (Kierunek k: kierunki) {
-            if (resultString.contains(k.getKierunek())) selectedKierunek = k;
-        }
-
-        databaseAccess.open();
+        selectedKierunek = databaseAccess.getKierunek(result);
         selectedWydzial = databaseAccess.getWydzial(selectedKierunek.getWydzialId());
         databaseAccess.close();
 

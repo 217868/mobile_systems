@@ -1,19 +1,19 @@
 12
 14
-Information Technology FTIMS IFE
-Informatyka stosowana FTIMS
-Automatyka i robotyka WEEIA
-Automatyka i sterowanie robotów WEEIA
-Elektronika i telekomunikacja WEEIA
-Elektrotechnika WEEIA
-Informatyka WEEIA
-Mechatronika WEEIA
-Systemy sterowania inteligentnymi budynkami WEEIA
-Computer Science WEEIA IFE
-Electronic and Telecommunication Engineering WEEIA IFE
-Transport WEEIA
-Energetyka Wydział Mechaniczny
-Matematyka stosowana FTIMS
+38
+39
+1
+6
+10
+11
+13
+15
+16
+8
+9
+17
+2
+40
 Czy interesujesz się ochroną środowiska?
 Czy chciałbyś wyjechać na Erasmusa?
 Interesuje Cie modelowanie komputerowe?

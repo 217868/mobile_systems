@@ -1,13 +1,13 @@
 10
 8
-Inżynieria chemiczna i biochemiczna IPiOŚ
-Inżynieria środowiska IPiOŚ
-Nanotechnologia Wydział Chemiczny
-Technologia chemiczna Wydział Chemiczny
-Advanced Biobased and Bioinspired Materials Wydział Chemiczny IFE
-Analityka chemiczna Wydział Chemiczny IFE
-Chemia Wydzial Chemiczny
-Chemia budowlana Wydział Chemiczny
+50
+51
+22
+23
+18
+19
+20
+21
 Czy interesuje Cię studiowanie po angielsku?
 Czy przeszkadza Ci nauka specjalistycznego oprogramowania?
 Czy interesujesz się ochroną środowiska?
