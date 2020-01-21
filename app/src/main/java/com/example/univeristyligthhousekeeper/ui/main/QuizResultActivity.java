@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.univeristyligthhousekeeper.DatabaseModel.DatabaseAccess;
 import com.example.univeristyligthhousekeeper.DatabaseModel.Kierunek;
 import com.example.univeristyligthhousekeeper.DatabaseModel.Wydzial;
+import com.example.univeristyligthhousekeeper.LogoHelper;
 import com.example.univeristyligthhousekeeper.MainActivityTabbed;
 import com.example.univeristyligthhousekeeper.R;
 
@@ -29,6 +31,7 @@ public class QuizResultActivity extends AppCompatActivity {
     String resultString;
     TextView kierunekDescriptionTextView;
     Button backButton;
+    ImageView wydzialLogoImageView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,12 +55,14 @@ public class QuizResultActivity extends AppCompatActivity {
         resultKierunekTextView = findViewById(R.id.resultKierunekTextView);
         resultWydzialTextView = findViewById(R.id.resultWydzialTextView);
         kierunekDescriptionTextView = findViewById(R.id.kierunekDescriptionTextView);
+        wydzialLogoImageView2 = findViewById(R.id.wydzialLogoImageView2);
         backButton = findViewById(R.id.backButton2);
         if (selectedKierunek != null) {
             kierunekDescriptionTextView.setText(selectedKierunek.getOpisKierunku());
             kierunekDescriptionTextView.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
             resultKierunekTextView.setText(selectedKierunek.getKierunek());
             resultWydzialTextView.setText(selectedWydzial.getWydzial());
+            wydzialLogoImageView2.setImageResource(LogoHelper.getWydzialLogo(selectedKierunek.getWydzialId()));
         }
 
         backButton.setOnClickListener(new View.OnClickListener() {

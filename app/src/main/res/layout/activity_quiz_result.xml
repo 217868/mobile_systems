@@ -29,10 +29,11 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
-            android:text="DummyText"
             android:gravity="center_horizontal"
+            android:text="DummyText"
             android:textColor="@color/colorPrimary"
             android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -43,14 +44,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
             android:text="TextView"
             android:textColor="@color/colorPrimaryLight"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/resultWydzialTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/separator" />
 
         <TextView
             android:id="@+id/textView2"
@@ -95,6 +96,34 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/kierunekDescriptionTextView"
             tools:text="Powrót"></Button>
+
+        <ImageView
+            android:id="@+id/wydzialLogoImageView2"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/resultWydzialTextView" />
+
+        <ImageView
+            android:id="@+id/separator"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wydzialLogoImageView2"
+            app:srcCompat="@drawable/separator" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
