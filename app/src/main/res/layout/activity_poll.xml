@@ -20,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent"></LinearLayout>
 
         <Button
-            android:id="@+id/nextButton"
+            android:id="@+id/backButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"

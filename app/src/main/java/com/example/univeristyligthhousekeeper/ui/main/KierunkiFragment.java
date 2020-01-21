@@ -1,6 +1,7 @@
 package com.example.univeristyligthhousekeeper.ui.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,15 +9,20 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.example.univeristyligthhousekeeper.DatabaseModel.DatabaseAccess;
 import com.example.univeristyligthhousekeeper.DatabaseModel.Kierunek;
 import com.example.univeristyligthhousekeeper.DatabaseModel.Wydzial;
+import com.example.univeristyligthhousekeeper.MainActivityTabbed;
 import com.example.univeristyligthhousekeeper.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,6 +39,8 @@ public class KierunkiFragment extends Fragment {
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
     DatabaseAccess databaseAccess;
+    private EditText searchEditText;
+    private List<Wydzial> searchedList;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -66,17 +74,48 @@ public class KierunkiFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_kierunki_list, container, false);
         // Set the adapter
 
-        Context context = view.getContext();
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
+        final Context context = view.getContext();
+        final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
         if (mColumnCount <= 1) {
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
         } else {
             recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
         }
         databaseAccess.open();
-        List<Wydzial> wydzialy = databaseAccess.getWydzialy();
+        final List<Wydzial> wydzialy = databaseAccess.getWydzialy();
         databaseAccess.close();
-        recyclerView.setAdapter(new MyKierunkiRecyclerViewAdapter(wydzialy, mListener));
+        recyclerView.setAdapter(new MyKierunkiRecyclerViewAdapter(wydzialy, mListener, context));
+
+        searchEditText = view.findViewById(R.id.searchEditText);
+
+        searchEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (b) searchEditText.setText("");
+            }
+        });
+
+        searchEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                searchedList = new ArrayList<>();
+                for (Wydzial w: wydzialy) {
+                    boolean isToBeAdded = false;
+                    for (Kierunek k: w.getKierunki()) {
+                        if (k.getKierunek().contains(editable.toString())) isToBeAdded = true;
+                    }
+                    if (isToBeAdded) searchedList.add(w);
+                }
+                recyclerView.setAdapter(new MyKierunkiRecyclerViewAdapter(searchedList, mListener, editable.toString(), context));
+            }
+        });
+
 
         return view;
     }
@@ -99,16 +138,6 @@ public class KierunkiFragment extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
         void onListFragmentInteraction(Kierunek item);

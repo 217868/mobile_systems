@@ -11,6 +11,8 @@ import com.example.univeristyligthhousekeeper.DatabaseModel.KoloNaukowe;
 import com.example.univeristyligthhousekeeper.DatabaseModel.Wydzial;
 import com.example.univeristyligthhousekeeper.ui.main.KierunkiFragment;
 import com.example.univeristyligthhousekeeper.ui.main.KolaFragment;
+import com.example.univeristyligthhousekeeper.ui.main.ListResultActivity;
+import com.example.univeristyligthhousekeeper.ui.main.MySubKierunekRecyclerView;
 import com.example.univeristyligthhousekeeper.ui.main.UczelniaFragment;
 import com.google.android.material.tabs.TabLayout;
 
@@ -54,7 +56,9 @@ public class MainActivityTabbed extends AppCompatActivity implements KolaFragmen
 
     @Override
     public void onListFragmentInteraction(Kierunek item) {
-
+        Intent intent = new Intent(this, ListResultActivity.class);
+        intent.putExtra("SELECTED_ID", item.getId());
+        this.startActivity(intent);
     }
 
     @Override
@@ -76,4 +80,5 @@ public class MainActivityTabbed extends AppCompatActivity implements KolaFragmen
     public void onListFragmentInteraction(JednostkaNadrzednaKN item) {
 
     }
+
 }

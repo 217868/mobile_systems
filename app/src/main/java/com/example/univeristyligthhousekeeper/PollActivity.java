@@ -33,7 +33,7 @@ public class PollActivity extends AppCompatActivity {
             quiz = new Quiz(getIntent().getStringExtra("RESULT"), getAssets());
         }
 
-        nextButton = findViewById(R.id.nextButton);
+        nextButton = findViewById(R.id.backButton2);
 
         if(isSecondQuiz) nextButton.setText("Wynik");
 
