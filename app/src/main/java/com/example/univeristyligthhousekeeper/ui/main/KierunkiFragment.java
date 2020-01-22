@@ -108,7 +108,7 @@ public class KierunkiFragment extends Fragment {
                 for (Wydzial w: wydzialy) {
                     boolean isToBeAdded = false;
                     for (Kierunek k: w.getKierunki()) {
-                        if (k.getKierunek().contains(editable.toString())) isToBeAdded = true;
+                        if (k.getKierunek().toLowerCase().contains(editable.toString().toLowerCase())) isToBeAdded = true;
                     }
                     if (isToBeAdded) searchedList.add(w);
                 }

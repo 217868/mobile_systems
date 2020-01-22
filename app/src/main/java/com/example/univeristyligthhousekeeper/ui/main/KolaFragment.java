@@ -86,6 +86,7 @@ public class KolaFragment extends Fragment {
             recyclerView.setAdapter(new MyKolaRecyclerViewAdapter(jednostkiNadrzedne, mListener, context));
 
         searchEditText = view.findViewById(R.id.searchEditText);
+        searchEditText.setHint("Wyszukaj koło...");
 
         searchEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -107,7 +108,7 @@ public class KolaFragment extends Fragment {
                 for (JednostkaNadrzednaKN jn: jednostkiNadrzedne) {
                     boolean isToBeAdded = false;
                     for (KoloNaukowe k: jn.getKolaNaukowe()) {
-                        if (k.getKoloNaukowe().contains(editable.toString())) isToBeAdded = true;
+                        if (k.getKoloNaukowe().toLowerCase().contains(editable.toString().toLowerCase())) isToBeAdded = true;
                     }
                     if (isToBeAdded) searchedList.add(jn);
                 }

@@ -71,7 +71,7 @@ public class MyKolaRecyclerViewAdapter extends RecyclerView.Adapter<MyKolaRecycl
         layoutManager.setInitialPrefetchItemCount(mValues.get(position).getKolaNaukowe().size());
         List<KoloNaukowe> searched = new ArrayList<>();
         for (KoloNaukowe k: mValues.get(position).getKolaNaukowe()) {
-            if (k.getKoloNaukowe().contains(searchString))searched.add(k);
+            if (k.getKoloNaukowe().toLowerCase().contains(searchString.toLowerCase()))searched.add(k);
         }
         MySubKolaRecyclerViewAdapter subRecycler = new MySubKolaRecyclerViewAdapter(searched, mListener, context);
         holder.recyclerViewSub.setLayoutManager(layoutManager);

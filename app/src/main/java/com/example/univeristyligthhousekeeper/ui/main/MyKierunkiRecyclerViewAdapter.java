@@ -64,7 +64,7 @@ public class MyKierunkiRecyclerViewAdapter extends RecyclerView.Adapter<MyKierun
         layoutManager.setInitialPrefetchItemCount(mValues.get(position).getKierunki().size());
         List<Kierunek> searched = new ArrayList<>();
         for (Kierunek k: mValues.get(position).getKierunki()) {
-            if (k.getKierunek().contains(searchString))searched.add(k);
+            if (k.getKierunek().toLowerCase().contains(searchString.toLowerCase()))searched.add(k);
         }
         MySubKierunekRecyclerView subRecycler = new MySubKierunekRecyclerView(searched, mListener, context);
         holder.recyclerViewSub.setLayoutManager(layoutManager);
