@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.ListResultActivity">
+    tools:context=".ui.main.ListResultActivity"
+    android:background="@drawable/app_back">
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -39,6 +40,7 @@
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:fontFamily="@font/bahn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wydzialLogoImageView" />
@@ -54,6 +56,7 @@
         android:layout_marginRight="24dp"
         android:text="TextView"
         android:textColor="@color/colorPrimaryLight"
+        app:fontFamily="@font/bahn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameTextView" />

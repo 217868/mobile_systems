@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UniveristyLigthhouseKeeper</string>
+    <string name="app_name">Latarnik Politechniczny</string>
     <string name="title_activity_main_tabbed">MainActivityTabbed</string>
     <string name="tab_text_1">Kierunki</string>
     <string name="tab_text_2">Uczelnia</string>

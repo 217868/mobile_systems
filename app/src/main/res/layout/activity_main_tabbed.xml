@@ -4,7 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivityTabbed">
+    tools:context=".MainActivityTabbed"
+    android:background="@drawable/app_back">
+
+    <ImageView
+        android:id="@+id/hor_shadow"
+        android:layout_width="0dp"
+        android:layout_height="8dp"
+        android:alpha="0.3"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/shadow_rev" />
+
+    <ImageView
+        android:id="@+id/hor_shadow2"
+        android:layout_width="0dp"
+        android:layout_height="8dp"
+        android:alpha="0.3"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/shadow" />
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -15,21 +36,19 @@
         app:layout_constraintStart_toStartOf="@+id/view_pager"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:minHeight="?actionBarSize"
-            android:padding="@dimen/appbar_padding"
-            android:text="@string/app_name"
-            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/logo_horiz" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:tabIndicatorColor="#FFFFFF"
             android:background="?attr/colorPrimary" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
@@ -47,7 +66,7 @@
     <ImageView
         android:id="@+id/bottomBar"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,14 +74,14 @@
 
     <Button
         android:id="@+id/goToPollButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="643dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/pollbutton_background"
         android:radius="100dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomBar"
         app:layout_constraintEnd_toEndOf="@+id/view_pager"
         app:layout_constraintStart_toStartOf="@+id/view_pager"
-        app:layout_constraintTop_toTopOf="@+id/bottomBar" />
+        app:layout_constraintTop_toBottomOf="@+id/view_pager" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

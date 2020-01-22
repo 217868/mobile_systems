@@ -127,4 +127,8 @@ public class Quiz {
         return null;
     }
 
+    public boolean checkIfEveryQuestionAnswered() {
+        return false;
+    }
+
 }

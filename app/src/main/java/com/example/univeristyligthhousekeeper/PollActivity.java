@@ -19,6 +19,7 @@ public class PollActivity extends AppCompatActivity {
     Button nextButton;
     Quiz quiz;
     boolean isSecondQuiz = false;
+    boolean[] isAnswered;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,8 @@ public class PollActivity extends AppCompatActivity {
 
         if(isSecondQuiz) nextButton.setText("Wynik");
 
+        nextButton.setVisibility(View.INVISIBLE);
+
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,7 +51,10 @@ public class PollActivity extends AppCompatActivity {
                 }
             }
         });
-
+        isAnswered = new boolean[quiz.GetQuestionList().size()];
+        for (boolean b : isAnswered) {
+            b = false;
+        }
 
         questionsListLayout = findViewById(R.id.questionsListLayout);
         for (int i = 0; i < quiz.GetQuestionList().size(); i++) {
@@ -125,6 +131,18 @@ public class PollActivity extends AppCompatActivity {
         views[answerNumber - 1].setVisibility(View.VISIBLE);
         quiz.SetUserAnswer(questionNumber, answerNumber - 1);
         Log.wtf("Question: ", quiz.GetQuestion(questionNumber).getContent() + " | Answer: " + answerNumber);
+
+        isAnswered[questionNumber] = true;
+        checkIfEveryAnswered();
+    }
+
+    void checkIfEveryAnswered() {
+        boolean showButton = true;
+        for (boolean b : isAnswered) {
+            if (!b) showButton = false;
+        }
+
+        if (showButton) nextButton.setVisibility(View.VISIBLE);
     }
 
     void runResult(String result) {
