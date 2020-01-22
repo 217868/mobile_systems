@@ -1,8 +1,6 @@
 package com.example.univeristyligthhousekeeper.ui.main;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,24 +9,26 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.univeristyligthhousekeeper.DatabaseModel.DatabaseAccess;
-import com.example.univeristyligthhousekeeper.DatabaseModel.Kierunek;
 import com.example.univeristyligthhousekeeper.DatabaseModel.KoloNaukowe;
 import com.example.univeristyligthhousekeeper.LogoHelper;
 import com.example.univeristyligthhousekeeper.MainActivityTabbed;
 import com.example.univeristyligthhousekeeper.R;
 
-import static android.text.Layout.JUSTIFICATION_MODE_INTER_WORD;
+import static android.graphics.text.LineBreaker.JUSTIFICATION_MODE_INTER_WORD;
 
-public class ListResultActivity extends AppCompatActivity {
-
+public class ListKoloActivity extends AppCompatActivity {
     DatabaseAccess databaseAccess;
     TextView nameTextView;
     TextView descriptionTextView;
-    ImageView wydzialLogoImageView;
-    Kierunek kierunek;
+    ImageView koloLogoImageView;
+    KoloNaukowe koloNaukowe;
     Button backButton2;
 
+    @SuppressLint("WrongConstant")
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,28 +39,27 @@ public class ListResultActivity extends AppCompatActivity {
 
 
         databaseAccess.open();
-        kierunek = databaseAccess.getKierunek(getIntent().getIntExtra("SELECTED_ID", 0));
+        koloNaukowe = databaseAccess.getKoloNaukowe(getIntent().getIntExtra("SELECTED_ID", 0));
         databaseAccess.close();
 
         nameTextView = findViewById(R.id.nameTextView);
         descriptionTextView = findViewById(R.id.descriptionTextView);
         descriptionTextView.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
-        wydzialLogoImageView = findViewById(R.id.wydzialLogoImageView);
+       koloLogoImageView = findViewById(R.id.wydzialLogoImageView);
         backButton2 = findViewById(R.id.backButton2);
 
-        wydzialLogoImageView.setImageResource(LogoHelper.getWydzialLogo(kierunek.getWydzialId()));
+       koloLogoImageView.setImageResource(LogoHelper.getKoloLogo(koloNaukowe.getId()));
 
-        nameTextView.setText(kierunek.getKierunek());
-        descriptionTextView.setText(kierunek.getOpisKierunku());
+        nameTextView.setText(koloNaukowe.getKoloNaukowe());
+        descriptionTextView.setText(koloNaukowe.getOpisKolaNaukowego());
 
         backButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ListResultActivity.this, MainActivityTabbed.class);
-                ListResultActivity.this.startActivity(intent);
+                Intent intent = new Intent(ListKoloActivity.this, MainActivityTabbed.class);
+                ListKoloActivity.this.startActivity(intent);
             }
         });
     }
-
 
 }

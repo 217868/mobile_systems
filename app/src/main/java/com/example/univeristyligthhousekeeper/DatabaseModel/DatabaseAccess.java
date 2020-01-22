@@ -157,6 +157,28 @@ public class DatabaseAccess {
         return kierunki.get(0);
     }
 
+    public KoloNaukowe getKoloNaukowe(int id)
+    {
+        List<KoloNaukowe> kolaNaukowes = new ArrayList<KoloNaukowe>();
+        String selectQuery = "SELECT * FROM kola_naukowe WHERE id ='" + id + "';";
+        Cursor cursor = database.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                KoloNaukowe koloNaukowe = new KoloNaukowe();
+                koloNaukowe.setId(cursor.getInt(0));
+                koloNaukowe.setJNid(cursor.getInt(1));
+                koloNaukowe.setKoloNaukowe(cursor.getString(2));
+                koloNaukowe.setOpisKolaNaukowego(cursor.getString(3));
+                // Adding contact to list
+                kolaNaukowes.add(koloNaukowe);
+                Log.d("Kierunek dodany: ", koloNaukowe.getKoloNaukowe());
+            } while (cursor.moveToNext());
+        }
+
+        return kolaNaukowes.get(0);
+    }
+
     public Wydzial getWydzial(int id){
 
         List<Wydzial> wydzialy = new ArrayList<Wydzial>();

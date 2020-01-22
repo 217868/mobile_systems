@@ -8,15 +8,21 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.example.univeristyligthhousekeeper.DatabaseModel.DatabaseAccess;
 import com.example.univeristyligthhousekeeper.DatabaseModel.JednostkaNadrzednaKN;
+import com.example.univeristyligthhousekeeper.DatabaseModel.Kierunek;
 import com.example.univeristyligthhousekeeper.DatabaseModel.KoloNaukowe;
+import com.example.univeristyligthhousekeeper.DatabaseModel.Wydzial;
 import com.example.univeristyligthhousekeeper.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,6 +39,8 @@ public class KolaFragment extends Fragment {
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
     DatabaseAccess databaseAccess;
+    private EditText searchEditText;
+    private List<JednostkaNadrzednaKN> searchedList;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -65,19 +73,48 @@ public class KolaFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_kola_list, container, false);
         // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
+        final Context context = view.getContext();
+        final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.kola_list);
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
             databaseAccess.open();
-            List<JednostkaNadrzednaKN> jednostkiNadrzedne = databaseAccess.getJednostkiNadrzedne();
+            final List<JednostkaNadrzednaKN> jednostkiNadrzedne = databaseAccess.getJednostkiNadrzedne();
             databaseAccess.close();
-            recyclerView.setAdapter(new MyKolaRecyclerViewAdapter(jednostkiNadrzedne, mListener));
-        }
+            recyclerView.setAdapter(new MyKolaRecyclerViewAdapter(jednostkiNadrzedne, mListener, context));
+
+        searchEditText = view.findViewById(R.id.searchEditText);
+
+        searchEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (b) searchEditText.setText("");
+            }
+        });
+
+        searchEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                searchedList = new ArrayList<>();
+                for (JednostkaNadrzednaKN jn: jednostkiNadrzedne) {
+                    boolean isToBeAdded = false;
+                    for (KoloNaukowe k: jn.getKolaNaukowe()) {
+                        if (k.getKoloNaukowe().contains(editable.toString())) isToBeAdded = true;
+                    }
+                    if (isToBeAdded) searchedList.add(jn);
+                }
+                recyclerView.setAdapter(new MyKolaRecyclerViewAdapter(searchedList, mListener, editable.toString(), context));
+            }
+        });
+
         return view;
     }
 
