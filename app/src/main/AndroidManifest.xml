@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.main.ListResultActivity"></activity>
+        <activity android:name=".ui.main.ListKoloActivity"></activity>
         <activity android:name=".ui.main.QuizResultActivity" />
         <activity android:name=".PollActivity" />
         <activity

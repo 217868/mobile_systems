@@ -1,5 +1,6 @@
 package com.example.univeristyligthhousekeeper.ui.main;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,18 +19,20 @@ public class MySubKolaRecyclerViewAdapter extends RecyclerView.Adapter<MySubKola
 
     private final List<KoloNaukowe> mValues;
     private final KolaFragment.OnListFragmentInteractionListener mListener;
+    private Context context;
 
-
-    public MySubKolaRecyclerViewAdapter(List<KoloNaukowe> mValues, KolaFragment.OnListFragmentInteractionListener mListener) {
+    public MySubKolaRecyclerViewAdapter(List<KoloNaukowe> mValues, KolaFragment.OnListFragmentInteractionListener mListener, Context context) {
         this.mValues = mValues;
         this.mListener = mListener;
+        this.context = context;
     }
 
     @NonNull
     @Override
-    public MySubKolaRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.subkolo, parent, false);
+
         return new MySubKolaRecyclerViewAdapter.ViewHolder(view);
     }
 
@@ -38,15 +41,12 @@ public class MySubKolaRecyclerViewAdapter extends RecyclerView.Adapter<MySubKola
     @Override
     public void onBindViewHolder(@NonNull final MySubKolaRecyclerViewAdapter.ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        Log.d("Kolo Naukowe: ", mValues.get(position).getKoloNaukowe());
         holder.mContentView.setText(mValues.get(position).getKoloNaukowe());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (null != mListener) {
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
                     mListener.onListFragmentInteraction(holder.mItem);
                 }
             }
