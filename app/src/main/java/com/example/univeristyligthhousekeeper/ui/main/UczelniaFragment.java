@@ -4,11 +4,13 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.univeristyligthhousekeeper.MainActivityTabbed;
 import com.example.univeristyligthhousekeeper.R;
@@ -31,6 +33,15 @@ public class UczelniaFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private Button historyButton;
+    private Button descriptionButton;
+    private Button numbersButton;
+    private Button contactButton;
+    private ConstraintLayout historyInclude;
+    private ConstraintLayout descriptionInclude;
+    private ConstraintLayout numbersInclude;
+    private ConstraintLayout contactInclude;
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -38,15 +49,7 @@ public class UczelniaFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment UczelniaFragment.
-     */
-    // TODO: Rename and change types and number of parameters
+
     public static UczelniaFragment newInstance() {
         UczelniaFragment fragment = new UczelniaFragment();
         return fragment;
@@ -59,6 +62,7 @@ public class UczelniaFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -66,6 +70,48 @@ public class UczelniaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_uczelnia2, container, false);
+
+        historyButton = v.findViewById(R.id.historyButton);
+        contactButton = v.findViewById(R.id.contactButton);
+        descriptionButton = v.findViewById(R.id.descriptionButton);
+        numbersButton = v.findViewById(R.id.numbersButton);
+        historyInclude = v.findViewById(R.id.includeHistory);
+        numbersInclude = v.findViewById(R.id.includeNumbers);
+        descriptionInclude = v.findViewById(R.id.includeDescription);
+        contactInclude = v.findViewById(R.id.includeContact);
+
+        historyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (historyInclude.getVisibility() == View.VISIBLE) historyInclude.setVisibility(View.GONE);
+                else if (historyInclude.getVisibility() == View.GONE) historyInclude.setVisibility(View.VISIBLE);
+            }
+        });
+
+        contactButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (contactInclude.getVisibility() == View.VISIBLE) contactInclude.setVisibility(View.GONE);
+                else if (contactInclude.getVisibility() == View.GONE) contactInclude.setVisibility(View.VISIBLE);
+            }
+        });
+
+        descriptionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (descriptionInclude.getVisibility() == View.VISIBLE) descriptionInclude.setVisibility(View.GONE);
+                else if (descriptionInclude.getVisibility() == View.GONE) descriptionInclude.setVisibility(View.VISIBLE);
+            }
+        });
+
+        numbersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (numbersInclude.getVisibility() == View.VISIBLE) numbersInclude.setVisibility(View.GONE);
+                else if (numbersInclude.getVisibility() == View.GONE) numbersInclude.setVisibility(View.VISIBLE);
+            }
+        });
+
         return v;
     }
 
@@ -93,16 +139,6 @@ public class UczelniaFragment extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

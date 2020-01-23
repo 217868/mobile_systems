@@ -40,6 +40,8 @@ public class MainActivityTabbed extends AppCompatActivity implements KolaFragmen
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 
+        viewPager.setCurrentItem(1);
+
         goToPollButton = findViewById(R.id.goToPollButton);
         databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
 

@@ -5,6 +5,14 @@
     <string name="tab_text_2">Uczelnia</string>
     <string name="tab_text_3">Koła naukowe</string>
 
+    <string name="opis_uczelni">Politechnika Łódzka jest jedyną publiczną uczelnią techniczną w regionie kształcącą na wysokim poziomie kadry techniczne. Obecnie ma ponad 20 000 studentów. Pozycje rankingowe potwierdzają, że jest jedną z najbardziej prestiżowych uczelni technicznych w Polsce.\n\n
+Parlament Studentów Rzeczypospolitej Polskiej przyznał jej prestiżowy tytuł PROStudencka uczelnia 2011. W ocenie jury konkursowego jest uczelnią zapewniającą swoim studentom najlepsze warunki kształcenia i możliwości rozwoju.\n\n
+
+Politechnika Łódzka jako pierwsza uczelnia w Polsce otrzymała ECTS Label – prestiżowy certyfikat przyznawany przez Komisję Europejską potwierdzający jakość kształcenia i międzynarodowej wymiany studenckiej.\n\n
+Według Raportu Ministerstwa Nauki i Szkolnictwa Wyższego w roku 2011 jest czwartą najchętniej wybieraną uczelnią w Polsce przez kandydatów na studia pierwszego stopnia i jednolite studia magisterskie.\n\n
+Od 1992 PŁ prowadzi studia całkowicie w języku angielskim lub francuskim w Centrum Kształcenia Międzynarodowego (International Faculty of Engineering – IFE). Obecnie w IFE kształci się ponad 1000 studentów z Polski i z zagranicy.\n\n
+</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
